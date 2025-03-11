@@ -22,7 +22,7 @@ jobs:
           first_ssh: |
             echo "Ens hem connectat correctament al servidor!"
           scp: |
-            './app.tgz' => ${{ secrets.DOCUMENT_ROOT }}
+            './fitxer.txt' => ${{ secrets.DOCUMENT_ROOT }}
           last_ssh: |
             echo $LASTSSH
             cd ${{ secrets.DOCUMENT_ROOT }}
