@@ -1,0 +1,23 @@
+name: Deploy Laravel
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Connectar-se via SSH i executar ordres
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          pass: ${{ secrets.SSH_PASS }}
+          port: ${{ secrets.SSH_PORT }}
+          first_ssh: |
+            echo "Ens hem connectat correctament al servidor!"
